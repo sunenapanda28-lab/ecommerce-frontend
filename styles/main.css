@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0px;
     text-align: center;
     box-sizing:border-box;
 }
@@ -9,26 +9,41 @@ body {
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 30px;
+    padding: 10px 20px;
     background:#ffffff;
     border-bottom:1px solid#ddd;
-    position:sticky;
-    top:0;
+    position:-sticky;
+    bottom: 10;
+    
     z-index:1000;
 }
 .logo{
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #e93c3c;
+}
+
+.logo i {
+  font-size: 26px;
+  color: #8b0000;
 }
 .nav{
     display: flex;
-    gap: 20px;
+    gap:1rem;
+    align-items:center;
+    padding-left:0;
+    padding-right:0;
+      font-weight: bold;
+      margin-bottom: auto;
 }
 .nav a{
-    text-decoration: none;
-    color: #333;
+    text-decoration:bold;
+    color: #ef3030;
     font-weight: 500;
+    margin-right:auto;
 }
 .nav a:hover{
     color:#007bff ;
@@ -40,52 +55,65 @@ body {
 }
 .search-box {
     display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 6px 10px;
-    border-radius: 20px;
+    align-items:center;
+   border:none;
+    padding:0.3rem 0.7rem;
+    border-radius:4px;
+   
+    
 }
 
 .search-box input {
-    border: none;
-    outline: none;
+  padding: 8px 10px;
+  width: 180px;
+  border-radius:10px;
+ 
+  outline: none;
+  transition: all 0.3s ease;
 }
+
+.search-box input:focus {
+  border-color: #ff6a00;
+  box-shadow: 0 0 5px rgba(255, 106, 0, 0.3);
+}
+
 
 .search-box i {
     color: #777;
 }
 .cart {
     position: relative;
-    font-size: 20px;
-    cursor: pointer;
+    font-size: 22px;
+    cursor:pointer;
 }
 
 .cart-count {
     position: absolute;
-    top: -6px;
-    right: -8px;
-    background: red;
-    color: white;
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 50%;
+    top: -10px;
+    right:-10px;
+    background:rgb(198, 31, 31);
+    color: #d71111 lack;;
+    font-size: 22px;
+    padding:0.4rem 0.8rem;
+    border-radius:40px;
+    gap:1rem;
 }
 .hamburger {
     display: none;
     font-size: 22px;
     cursor: pointer;
 }
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .nav {
         position: absolute;
-        top: 70px;
-        left: 0;
+        top: 40px;
+        right: 0;
         width: 100%;
         background: white;
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        padding: 20px 0;
+        padding: 200px 0;
         display: none;
     }
 
@@ -100,4 +128,85 @@ body {
     .search-box {
         display: none;
     }
+}
+/* HERO SECTION */
+.hero {
+  
+  height: 100vh;
+  background: linear-gradient;
+  background-color:white;
+background-image: url("https://images.unsplash.com/photo-1505740420928-5e560c06d30e");
+ background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:20px;
+  background-repeat:no-repeat;
+}
+.hero-content {
+  text-align: center;
+  color: #ba2323;
+  max-width: 700px;
+  animation: fadeIn 1.5s ease-in-out;
+  margin-bottom: auto;
+}
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+.hero-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: #ff6a00;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.5s ease;
+}
+.hero-btn:hover {
+  background-color: #ff8c1a;
+  transform: translateY(-3px);
+}
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+  }
+   .hero-content h1 {
+    font-size: 2.3rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .hero-btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
