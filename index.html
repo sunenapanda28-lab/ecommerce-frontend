@@ -50,6 +50,48 @@
     <a href="#products" class="hero-btn">Shop Now</a>
   </div>
 </section>
- <script src="scripts/app.js"></script>
+<div class="product-grid" id="productGrid">
+  <!-- Product cards will be added here dynamically -->
+</div>
+<div class="product-card">
+  <img src="https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2lyZWxlc3MlMjBoZWFkcGhvbmVzfGVufDB8fDB8fHww" alt="Product">
+  <h3>wireless headphones</h3>
+  <p class="price">1,999</p>
+  <button>Add to Cart</button>
+</div>
+<script>
+fetch("https://fakestoreapi.com/products")
+  .then(response => response.json())
+  .then(data => {
+    const grid = document.getElementById("productGrid");
+
+    data.forEach(product => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+
+      card.innerHTML = `
+        <img src="${product.image}" alt="{product.title}">
+        <h3>${product.title}</h3>
+        <p class="price">$${product.price}</p>
+        <button>Add to Cart</button>
+      `;
+
+      grid.appendChild(card);
+    });
+  })
+  .catch(error => console.error(error));
+</script>
+<img src=$"{product.image}" loading="lazy">
+<h4>Our Products</h4>
+
+  <div id="loading">Loading products...</div>
+  <div id="error"></div>
+
+  <div class="product-grid" id="productGrid"></div>
+  <div id="loading">Loading products...</div>
+<div id="error"></div>
+<img loading="lazy">
+<script src="script.js"></script>
+
 </body>
 </html>
